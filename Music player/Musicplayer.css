@@ -1,0 +1,75 @@
+body{
+    background-image: url(./Images/wp1836740.webp);
+}
+
+.Navbar{
+    background:linear-gradient(-45deg,#0E050F,#170B3B,#341948,#9388A2);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+    box-shadow:20px 20px 25px black;
+    height:100px;
+    }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+   
+
+
+.Navbar a{
+    text-decoration: none;
+    color:White;
+    font-family:fantasy;
+   
+    margin-left:700px;
+    
+}
+.box{
+  margin-top:30px ;  
+  width: 500px;
+  height:500px;
+  margin-left: 510px;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  background-color: white;
+  box-shadow: 10px 10px 5px transparent;
+  border-radius: 20px;
+    
+}
+#pics{
+height:300px;
+border-radius: 200px;
+margin-left: 18%;
+margin-top: 50px;
+filter:drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));}
+
+   
+
+#left{
+    
+    margin-top: 50px;
+}
+#play{
+    cursor: pointer;
+}
+#next{
+    cursor: pointer;
+    margin: 20px;;
+}
+#prev{
+    margin-right: 20px;
+    margin-top:50px;
+    margin-left: 129px; 
+    cursor:pointer;
+}
+#title_track{
+    font-family: fantasy;
+    font-size: large;
+}

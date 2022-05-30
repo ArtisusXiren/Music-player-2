@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./Musicplayer.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+   </head>
+  <body>
+      <nav class="Navbar">
+          <a href="#">Music player</a>
+      </nav>
+     
+        <div class="box">
+            
+            <div id="title_track"></div>
+            
+            
+            <img src="./Images/nancy.jpg" id="pics">
+            <audio src="./Music/Nancy Mulligan.mp3"></audio>
+
+            
+        <div class="controls">
+            <i class="fa-solid fa-backward  fa-2xl" id="prev"></i>
+            <i class="fa-solid fa-hand-point-left fa-2xl" id="left"></i>
+            <i class="fa-solid fa-circle-play fa-2xl" id="play"></i> 
+            <i class="fa-solid fa-hand-point-right fa-2xl" id="right"></i>
+            <i class="fa-solid fa-forward fa-2xl" id="next"></i>
+        </div>
+        </div>
+        
+       <script>
+           const music=document.querySelector("audio");
+           const img=document.querySelector("img");
+           const play= document.getElementById("play");
+           const prev=document.getElementById("prev");         
+           const next=document.getElementById("next");
+           const title_track=document.getElementById("title_track"); 
+           
+               
+         
+           let songIndex=0;
+           
+           const songs = [ "Bad Habits","Distance","Nancy Mulligan","castle on the hill","kids","photograph","savior","cold","payphone","river"];
+        
+           
+           load(songs[songIndex]);
+           function load(songs) {
+            title_track.textContent = songs;
+            music.src = `Music/${songs}.mp3`;
+             img.src = `Images/${songs}.jpg`;
+          
+             };
+             
+           let playing=false;
+
+           const playMusic = () =>{
+            playing=true;
+            load(songs[songIndex]); 
+            
+           music.play();
+           play.classList.replace("fa-circle-play","fa-circle-pause");
+
+           };
+           
+           const pauseMusic = () =>{
+             playing=false;  
+               music.pause();
+            play.classList.replace("fa-circle-pause","fa-circle-play");};
+          play.addEventListener("click",() =>{
+              if(playing){
+                  pauseMusic();
+              }
+              else{
+                  playMusic();
+              }
+          } );
+            
+            
+          function nextSong() {
+  songIndex++;
+
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
+  }
+
+  load(songs[songIndex]); 
+  
+  music.play();}
+ 
+ playing=true;
+  play.addEventListener("click",() =>{
+              if(playing){
+                  music.pause();
+                  play.classList.replace("fa-circle-pause","fa-circle-play");
+
+              }
+              else{
+                  music.play();
+                  play.classList.replace("fa-circle-play","fa-circle-pause");
+              } 
+          } );  
+          function prevSong() {
+  songIndex--;
+
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
+  }
+
+  load(songs[songIndex]);
+
+  music.play();}
+  playing=true;
+  play.addEventListener("click",() =>{
+              if(playing){
+                  music.pause();
+                  play.classList.replace("fa-circle-pause","fa-circle-play");
+
+              }
+              else{
+                  music.play();
+                  play.classList.replace("fa-circle-play","fa-circle-pause");
+              } 
+          } );
+
+
+next.addEventListener("click",nextSong)
+prev.addEventListener("click", prevSong)
+ </script>
+</body>
